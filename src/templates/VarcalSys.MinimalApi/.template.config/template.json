@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "VarcalSys",
-  "classifications": ["WebAPI", "MinimalAPI"],
+  "classifications": ["VarcalSys", "WebAPI", "MinimalAPI"],
   "identity": "VarcalSys.MinimalApi",
   "name": "VarcalSys Minimal API",
   "shortName": "varcal-minimal",

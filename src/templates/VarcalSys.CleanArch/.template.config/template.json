@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "VarcalSys",
-  "classifications": ["WebAPI", "CleanArchitecture", "CQRS"],
+  "classifications": ["VarcalSys", "WebAPI", "CleanArchitecture", "CQRS"],
   "identity": "VarcalSys.CleanArch",
   "name": "VarcalSys Clean Architecture",
   "shortName": "varcal-clean",

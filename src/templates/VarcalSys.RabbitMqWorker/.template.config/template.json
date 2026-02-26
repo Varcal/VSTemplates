@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "VarcalSys",
-  "classifications": ["Worker", "RabbitMQ", "Messaging"],
+  "classifications": ["VarcalSys", "Worker", "RabbitMQ", "Messaging"],
   "identity": "VarcalSys.RabbitMqWorker",
   "name": "VarcalSys RabbitMQ Worker",
   "shortName": "varcal-rabbitmq",

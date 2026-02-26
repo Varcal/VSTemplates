@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "VarcalSys",
-  "classifications": ["WebAPI", "DDD", "CleanArchitecture", "CQRS"],
+  "classifications": ["VarcalSys", "WebAPI", "DDD", "CleanArchitecture", "CQRS"],
   "identity": "VarcalSys.DddCleanArch",
   "name": "VarcalSys DDD + Clean Architecture",
   "shortName": "varcal-ddd",
