@@ -1,0 +1,13 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Infrastructure Layer</Name>
+    <Description>Infrastructure layer with EF Core persistence.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <DefaultName>Infrastructure</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="$safeprojectname$.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="DependencyInjection.cs">DependencyInjection.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

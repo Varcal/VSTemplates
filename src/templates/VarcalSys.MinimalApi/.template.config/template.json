@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "VarcalSys",
+  "classifications": ["WebAPI", "MinimalAPI"],
+  "identity": "VarcalSys.MinimalApi",
+  "name": "VarcalSys Minimal API",
+  "shortName": "varcal-minimal",
+  "description": "Projeto simples de Minimal API com FluentValidation e estrutura de Endpoints.",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Company.Solution",
+  "preferNameDirectory": true,
+  "symbols": {
+    "Company": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "MyCompany",
+      "replaces": "Company",
+      "description": "Nome da empresa/organização"
+    },
+    "Solution": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "MySolution",
+      "replaces": "Solution",
+      "description": "Nome do projeto"
+    }
+  },
+  "postActions": [
+    {
+      "description": "Restaurar pacotes NuGet",
+      "manualInstructions": [{ "text": "Execute 'dotnet restore'" }],
+      "actionId": "210D431B-A78B-4D2F-B2C8-0E6A5A7E3E12",
+      "continueOnError": true
+    }
+  ]
+}

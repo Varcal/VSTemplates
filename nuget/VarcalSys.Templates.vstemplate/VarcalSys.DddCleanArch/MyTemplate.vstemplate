@@ -1,0 +1,41 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>VarcalSys DDD + Clean Architecture</Name>
+    <Description>Solution com DDD, Clean Architecture, CQRS (MediatR), FluentValidation e EF Core.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType></ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>MyDddApp</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.png</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <SolutionFolder Name="src">
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Domain" CopyParameters="true">
+          Domain\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Application" CopyParameters="true">
+          Application\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Infrastructure" CopyParameters="true">
+          Infrastructure\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.API" CopyParameters="true">
+          API\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+      <SolutionFolder Name="tests">
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Domain.Tests" CopyParameters="true">
+          DomainTests\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Application.Tests" CopyParameters="true">
+          AppTests\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+    </ProjectCollection>
+  </TemplateContent>
+</VSTemplate>

@@ -1,0 +1,14 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Domain Layer</Name>
+    <Description>Domain layer with entities, value objects, and repositories.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <DefaultName>Domain</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="$safeprojectname$.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Entities\Entity.cs">Entity.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Entities\AggregateRoot.cs">AggregateRoot.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

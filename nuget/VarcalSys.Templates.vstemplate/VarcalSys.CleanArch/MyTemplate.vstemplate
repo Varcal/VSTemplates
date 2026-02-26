@@ -1,0 +1,33 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>VarcalSys Clean Architecture</Name>
+    <Description>Solution com Clean Architecture, FluentValidation e EF Core. Sem DDD complexo.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>1001</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>MyCleanApp</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <SolutionFolder Name="src">
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Core" CopyParameters="true">
+          Core\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Infrastructure" CopyParameters="true">
+          Infrastructure\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.API" CopyParameters="true">
+          API\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+      <SolutionFolder Name="tests">
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Core.Tests" CopyParameters="true">
+          CoreTests\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+    </ProjectCollection>
+  </TemplateContent>
+</VSTemplate>

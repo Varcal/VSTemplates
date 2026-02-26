@@ -1,0 +1,13 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>RabbitMQ Worker Project</Name>
+    <Description>BackgroundService with RabbitMQ.Client consumer, auto-recovery and manual ack.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <DefaultName>Worker</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="$safeprojectname$.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

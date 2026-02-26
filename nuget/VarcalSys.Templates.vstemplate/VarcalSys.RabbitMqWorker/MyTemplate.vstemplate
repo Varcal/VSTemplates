@@ -1,0 +1,20 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>VarcalSys RabbitMQ Worker</Name>
+    <Description>Worker Service com consumidor RabbitMQ nativo, reconexão automática e manual ack.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>1003</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>MyRabbitWorker</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Worker" CopyParameters="true">
+        Project\MyTemplate.vstemplate
+      </ProjectTemplateLink>
+    </ProjectCollection>
+  </TemplateContent>
+</VSTemplate>

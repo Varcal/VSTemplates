@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "VarcalSys",
+  "classifications": ["Worker", "RabbitMQ", "Messaging"],
+  "identity": "VarcalSys.RabbitMqWorker",
+  "name": "VarcalSys RabbitMQ Worker",
+  "shortName": "varcal-rabbitmq",
+  "description": "Worker Service com consumidor RabbitMQ usando RabbitMQ.Client nativo, reconexão automática e manual ack.",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Company.Solution",
+  "preferNameDirectory": true,
+  "symbols": {
+    "Company": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "MyCompany",
+      "replaces": "Company",
+      "description": "Nome da empresa/organização"
+    },
+    "Solution": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "MySolution",
+      "replaces": "Solution",
+      "description": "Nome do projeto"
+    },
+    "QueueName": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "my-queue",
+      "replaces": "my-queue",
+      "description": "Nome da fila RabbitMQ"
+    }
+  },
+  "postActions": [
+    {
+      "description": "Restaurar pacotes NuGet",
+      "manualInstructions": [{ "text": "Execute 'dotnet restore'" }],
+      "actionId": "210D431B-A78B-4D2F-B2C8-0E6A5A7E3E12",
+      "continueOnError": true
+    }
+  ]
+}

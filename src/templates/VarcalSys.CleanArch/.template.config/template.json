@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "VarcalSys",
+  "classifications": ["WebAPI", "CleanArchitecture", "CQRS"],
+  "identity": "VarcalSys.CleanArch",
+  "name": "VarcalSys Clean Architecture",
+  "shortName": "varcal-clean",
+  "description": "Solution com Clean Architecture, CQRS opcional, FluentValidation e EF Core. Sem conceitos complexos de DDD.",
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "sourceName": "Company.Solution",
+  "preferNameDirectory": true,
+  "symbols": {
+    "Company": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "MyCompany",
+      "replaces": "Company",
+      "description": "Nome da empresa/organização"
+    },
+    "Solution": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "MySolution",
+      "replaces": "Solution",
+      "description": "Nome da solution/projeto"
+    },
+    "UseDocker": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Incluir Dockerfile e docker-compose"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(!UseDocker)",
+          "exclude": ["Dockerfile", "docker-compose.yml"]
+        }
+      ]
+    }
+  ],
+  "postActions": [
+    {
+      "description": "Restaurar pacotes NuGet",
+      "manualInstructions": [{ "text": "Execute 'dotnet restore'" }],
+      "actionId": "210D431B-A78B-4D2F-B2C8-0E6A5A7E3E12",
+      "continueOnError": true
+    }
+  ]
+}

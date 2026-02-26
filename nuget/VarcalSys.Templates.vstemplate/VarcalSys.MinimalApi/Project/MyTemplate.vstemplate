@@ -1,0 +1,13 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Minimal API Project</Name>
+    <Description>ASP.NET Core Minimal API with FluentValidation endpoints.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <DefaultName>MinimalApi</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="$safeprojectname$.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

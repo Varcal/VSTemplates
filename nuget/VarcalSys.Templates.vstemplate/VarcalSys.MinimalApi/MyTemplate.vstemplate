@@ -1,0 +1,20 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>VarcalSys Minimal API</Name>
+    <Description>Projeto simples de Minimal API com FluentValidation e Endpoints organizados.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>1002</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>MyMinimalApi</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <ProjectTemplateLink ProjectName="$safeprojectname$" CopyParameters="true">
+        Project\MyTemplate.vstemplate
+      </ProjectTemplateLink>
+    </ProjectCollection>
+  </TemplateContent>
+</VSTemplate>

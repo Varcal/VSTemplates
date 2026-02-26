@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageId>VarcalSys.Templates</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Title>VarcalSys .NET Templates</Title>
+    <Authors>VarcalSys</Authors>
+    <Description>Templates de projeto .NET 10 para DDD + Clean Architecture, Clean Architecture, Minimal API e Worker RabbitMQ.</Description>
+    <PackageTags>dotnet;template;ddd;clean-architecture;cqrs;rabbitmq;minimal-api;varcalsys</PackageTags>
+    <PackageProjectUrl>https://github.com/VarcalSys/VSTemplates</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <!-- Template packaging settings -->
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+
+    <!-- Prevent output from being included -->
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\src\templates\VarcalSys.DddCleanArch\**\*"
+             Exclude="..\src\templates\VarcalSys.DddCleanArch\**\bin\**;
+                      ..\src\templates\VarcalSys.DddCleanArch\**\obj\**"
+             PackagePath="content\VarcalSys.DddCleanArch\" />
+
+    <Content Include="..\src\templates\VarcalSys.CleanArch\**\*"
+             Exclude="..\src\templates\VarcalSys.CleanArch\**\bin\**;
+                      ..\src\templates\VarcalSys.CleanArch\**\obj\**"
+             PackagePath="content\VarcalSys.CleanArch\" />
+
+    <Content Include="..\src\templates\VarcalSys.MinimalApi\**\*"
+             Exclude="..\src\templates\VarcalSys.MinimalApi\**\bin\**;
+                      ..\src\templates\VarcalSys.MinimalApi\**\obj\**"
+             PackagePath="content\VarcalSys.MinimalApi\" />
+
+    <Content Include="..\src\templates\VarcalSys.RabbitMqWorker\**\*"
+             Exclude="..\src\templates\VarcalSys.RabbitMqWorker\**\bin\**;
+                      ..\src\templates\VarcalSys.RabbitMqWorker\**\obj\**"
+             PackagePath="content\VarcalSys.RabbitMqWorker\" />
+
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
