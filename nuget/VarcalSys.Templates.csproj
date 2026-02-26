@@ -25,23 +25,27 @@
   <ItemGroup>
     <Content Include="..\src\templates\VarcalSys.DddCleanArch\**\*"
              Exclude="..\src\templates\VarcalSys.DddCleanArch\**\bin\**;
-                      ..\src\templates\VarcalSys.DddCleanArch\**\obj\**"
-             PackagePath="content\VarcalSys.DddCleanArch\" />
+                      ..\src\templates\VarcalSys.DddCleanArch\**\obj\**;
+                      ..\src\templates\VarcalSys.DddCleanArch\**\.vs\**"
+             PackagePath="content/VarcalSys.DddCleanArch" />
 
     <Content Include="..\src\templates\VarcalSys.CleanArch\**\*"
              Exclude="..\src\templates\VarcalSys.CleanArch\**\bin\**;
-                      ..\src\templates\VarcalSys.CleanArch\**\obj\**"
-             PackagePath="content\VarcalSys.CleanArch\" />
+                      ..\src\templates\VarcalSys.CleanArch\**\obj\**;
+                      ..\src\templates\VarcalSys.CleanArch\**\.vs\**"
+             PackagePath="content/VarcalSys.CleanArch" />
 
     <Content Include="..\src\templates\VarcalSys.MinimalApi\**\*"
              Exclude="..\src\templates\VarcalSys.MinimalApi\**\bin\**;
-                      ..\src\templates\VarcalSys.MinimalApi\**\obj\**"
-             PackagePath="content\VarcalSys.MinimalApi\" />
+                      ..\src\templates\VarcalSys.MinimalApi\**\obj\**;
+                      ..\src\templates\VarcalSys.MinimalApi\**\.vs\**"
+             PackagePath="content/VarcalSys.MinimalApi" />
 
     <Content Include="..\src\templates\VarcalSys.RabbitMqWorker\**\*"
              Exclude="..\src\templates\VarcalSys.RabbitMqWorker\**\bin\**;
-                      ..\src\templates\VarcalSys.RabbitMqWorker\**\obj\**"
-             PackagePath="content\VarcalSys.RabbitMqWorker\" />
+                      ..\src\templates\VarcalSys.RabbitMqWorker\**\obj\**;
+                      ..\src\templates\VarcalSys.RabbitMqWorker\**\.vs\**"
+             PackagePath="content/VarcalSys.RabbitMqWorker" />
 
     <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
