@@ -13,20 +13,6 @@
   "sourceName": "Company.Solution",
   "preferNameDirectory": true,
   "symbols": {
-    "Company": {
-      "type": "parameter",
-      "datatype": "string",
-      "defaultValue": "MyCompany",
-      "replaces": "Company",
-      "description": "Nome da empresa/organização"
-    },
-    "Solution": {
-      "type": "parameter",
-      "datatype": "string",
-      "defaultValue": "MySolution",
-      "replaces": "Solution",
-      "description": "Nome da solution/projeto"
-    },
     "UseDocker": {
       "type": "parameter",
       "datatype": "bool",

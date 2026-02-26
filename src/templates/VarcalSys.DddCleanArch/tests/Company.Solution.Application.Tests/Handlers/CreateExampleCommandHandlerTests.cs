@@ -4,6 +4,7 @@ using Company.Solution.Application.Commands;
 using Company.Solution.Application.Handlers;
 using Company.Solution.Domain.Entities;
 using Company.Solution.Domain.Repositories;
+using Xunit;
 
 namespace Company.Solution.Application.Tests.Handlers;
 

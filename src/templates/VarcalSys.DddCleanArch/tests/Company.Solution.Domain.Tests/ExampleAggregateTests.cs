@@ -1,6 +1,7 @@
 using FluentAssertions;
 using Company.Solution.Domain.Entities;
 using Company.Solution.Domain.Events;
+using Xunit;
 
 namespace Company.Solution.Domain.Tests;
 

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Company.Solution.Application.Events;
 using Company.Solution.Domain.Entities;
 using Company.Solution.Domain.Repositories;
 using Company.Solution.Infrastructure.Persistence;
@@ -21,6 +22,7 @@ public static class DependencyInjection
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<AppDbContext>());
         services.AddScoped<IRepository<ExampleAggregate>, ExampleRepository>();
+        services.AddScoped<IDomainEventDispatcher, MediatRDomainEventDispatcher>();
 
         return services;
     }

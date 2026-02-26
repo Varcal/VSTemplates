@@ -5,7 +5,7 @@
   "identity": "VarcalSys.CleanArch",
   "name": "VarcalSys Clean Architecture",
   "shortName": "varcal-clean",
-  "description": "Solution com Clean Architecture, CQRS opcional, FluentValidation e EF Core. Sem conceitos complexos de DDD.",
+  "description": "Solution com Clean Architecture, FluentValidation e EF Core. Sem conceitos complexos de DDD.",
   "tags": {
     "language": "C#",
     "type": "solution"
@@ -13,20 +13,6 @@
   "sourceName": "Company.Solution",
   "preferNameDirectory": true,
   "symbols": {
-    "Company": {
-      "type": "parameter",
-      "datatype": "string",
-      "defaultValue": "MyCompany",
-      "replaces": "Company",
-      "description": "Nome da empresa/organização"
-    },
-    "Solution": {
-      "type": "parameter",
-      "datatype": "string",
-      "defaultValue": "MySolution",
-      "replaces": "Solution",
-      "description": "Nome da solution/projeto"
-    },
     "UseDocker": {
       "type": "parameter",
       "datatype": "bool",

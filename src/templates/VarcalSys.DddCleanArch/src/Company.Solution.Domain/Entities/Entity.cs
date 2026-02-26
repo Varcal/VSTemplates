@@ -1,3 +1,5 @@
+using Company.Solution.Domain.Events;
+
 namespace Company.Solution.Domain.Entities;
 
 public abstract class Entity

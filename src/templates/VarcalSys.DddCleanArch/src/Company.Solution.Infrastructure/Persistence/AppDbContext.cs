@@ -1,10 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using Company.Solution.Application.Events;
 using Company.Solution.Domain.Entities;
 using Company.Solution.Domain.Repositories;
 
 namespace Company.Solution.Infrastructure.Persistence;
 
-public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options), IUnitOfWork
+public class AppDbContext(
+    DbContextOptions<AppDbContext> options,
+    IDomainEventDispatcher domainEventDispatcher) : DbContext(options), IUnitOfWork
 {
     public DbSet<ExampleAggregate> Examples => Set<ExampleAggregate>();
 
@@ -16,18 +19,20 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-        DispatchDomainEvents();
-        return await base.SaveChangesAsync(cancellationToken);
-    }
-
-    private void DispatchDomainEvents()
-    {
-        var entities = ChangeTracker.Entries<Entity>()
+        var domainEvents = ChangeTracker.Entries<Entity>()
             .Where(e => e.Entity.DomainEvents.Any())
-            .Select(e => e.Entity)
+            .SelectMany(e => e.Entity.DomainEvents)
             .ToList();
 
-        foreach (var entity in entities)
-            entity.ClearDomainEvents();
+        ChangeTracker.Entries<Entity>()
+            .Where(e => e.Entity.DomainEvents.Any())
+            .ToList()
+            .ForEach(e => e.Entity.ClearDomainEvents());
+
+        var result = await base.SaveChangesAsync(cancellationToken);
+
+        await domainEventDispatcher.DispatchAsync(domainEvents, cancellationToken);
+
+        return result;
     }
 }

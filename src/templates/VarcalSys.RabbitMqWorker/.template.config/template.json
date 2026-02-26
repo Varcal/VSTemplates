@@ -13,20 +13,6 @@
   "sourceName": "Company.Solution",
   "preferNameDirectory": true,
   "symbols": {
-    "Company": {
-      "type": "parameter",
-      "datatype": "string",
-      "defaultValue": "MyCompany",
-      "replaces": "Company",
-      "description": "Nome da empresa/organização"
-    },
-    "Solution": {
-      "type": "parameter",
-      "datatype": "string",
-      "defaultValue": "MySolution",
-      "replaces": "Solution",
-      "description": "Nome do projeto"
-    },
     "QueueName": {
       "type": "parameter",
       "datatype": "string",

@@ -1,5 +1,6 @@
 using FluentAssertions;
 using Company.Solution.Core.Entities;
+using Xunit;
 
 namespace Company.Solution.Core.Tests;
 

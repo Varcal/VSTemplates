@@ -82,24 +82,30 @@ public class NewCommand : AsyncCommand<NewCommand.Settings>
                 ctx.Spinner(Spinner.Known.Dots);
 
                 var args = BuildDotnetArgs(template.ShortName, company, solution, outputDir);
-                var exitCode = await RunCommandAsync("dotnet", args);
+                var (exitCode, _, dotnetError) = await RunCommandAsync("dotnet", args);
 
                 if (exitCode != 0)
                 {
-                    AnsiConsole.MarkupLine("\n[red]Failed to create project. Make sure VarcalSys.Templates is installed:[/]");
+                    AnsiConsole.MarkupLine("\n[red]Failed to create project.[/]");
+                    if (!string.IsNullOrWhiteSpace(dotnetError))
+                        AnsiConsole.MarkupLine($"[red]{Markup.Escape(dotnetError.Trim())}[/]");
+                    AnsiConsole.MarkupLine("\n[grey]Make sure the templates are installed:[/]");
                     AnsiConsole.MarkupLine("[grey]  dotnet new install VarcalSys.Templates[/]");
+                    AnsiConsole.MarkupLine("[grey]  -- or from local directory --[/]");
+                    AnsiConsole.MarkupLine($"[grey]  dotnet new install {Markup.Escape(Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../../../../src/templates", $"VarcalSys.{template.ShortName.Replace("varcal-", string.Empty).Replace("-", string.Empty, StringComparison.OrdinalIgnoreCase)}")))}/[/]");
                     return exitCode;
                 }
 
                 ctx.Status("Restoring NuGet packages...");
-                await RunCommandAsync("dotnet", $"restore \"{outputDir}\"");
+                _ = await RunCommandAsync("dotnet", $"restore \"{outputDir}\"");
 
                 if (!settings.NoGit)
                 {
                     ctx.Status("Initializing git repository...");
-                    await RunCommandAsync("git", $"init \"{outputDir}\"");
+                    _ = await RunCommandAsync("git", $"init \"{outputDir}\"");
                     await CreateGitignoreAsync(outputDir);
                 }
+
 
                 AnsiConsole.WriteLine();
                 AnsiConsole.MarkupLine($"[green]✓[/] Project created at [blue]{outputDir}[/]");
@@ -124,10 +130,13 @@ public class NewCommand : AsyncCommand<NewCommand.Settings>
 
     private static string BuildDotnetArgs(string shortName, string company, string solution, string outputDir)
     {
-        return $"new {shortName} --Company \"{company}\" --Solution \"{solution}\" -o \"{outputDir}\" --force";
+        // sourceName "Company.Solution" é substituído via -n pelo engine do dotnet new,
+        // garantindo que tanto nomes de diretórios quanto conteúdo de arquivos sejam consistentes.
+        var name = $"{company}.{solution}";
+        return $"new {shortName} -n \"{name}\" -o \"{outputDir}\" --force";
     }
 
-    private static async Task<int> RunCommandAsync(string command, string arguments)
+    private static async Task<(int ExitCode, string Output, string Error)> RunCommandAsync(string command, string arguments)
     {
         var psi = new ProcessStartInfo(command, arguments)
         {
@@ -137,10 +146,12 @@ public class NewCommand : AsyncCommand<NewCommand.Settings>
         };
 
         using var process = Process.Start(psi);
-        if (process is null) return -1;
+        if (process is null) return (-1, string.Empty, string.Empty);
 
+        var output = await process.StandardOutput.ReadToEndAsync();
+        var error = await process.StandardError.ReadToEndAsync();
         await process.WaitForExitAsync();
-        return process.ExitCode;
+        return (process.ExitCode, output, error);
     }
 
     private static async Task CreateGitignoreAsync(string outputDir)
