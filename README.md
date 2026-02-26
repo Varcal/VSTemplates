@@ -1,4 +1,4 @@
-# VarcalSys .NET Templates
+# VarçalSys .NET Templates
 
 Templates de projeto .NET 10 para acelerar a criação de novos projetos com arquiteturas padronizadas.
 
